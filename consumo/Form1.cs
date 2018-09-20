@@ -104,7 +104,7 @@ namespace consumo
                     openCon.Open();
                     result = querySaveStaff.ExecuteNonQuery();
                 }
-
+                //asihdiashdiahso//
             }
             // CAPTURADOR DE ERRORES //
             catch (SqlException ex)
@@ -113,8 +113,6 @@ namespace consumo
                 Console.WriteLine(ex.Message);
 
             }
-
-
             return result;
             {
 
