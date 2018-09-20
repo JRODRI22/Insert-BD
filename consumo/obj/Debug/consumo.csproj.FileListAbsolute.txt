@@ -1,0 +1,25 @@
+C:\Users\TI\source\repos\consumo\consumo\bin\Debug\consumo.exe.config
+C:\Users\TI\source\repos\consumo\consumo\bin\Debug\consumo.exe
+C:\Users\TI\source\repos\consumo\consumo\bin\Debug\consumo.pdb
+C:\Users\TI\source\repos\consumo\consumo\obj\Debug\consumo.csprojResolveAssemblyReference.cache
+C:\Users\TI\source\repos\consumo\consumo\obj\Debug\consumo.Properties.Resources.resources
+C:\Users\TI\source\repos\consumo\consumo\obj\Debug\consumo.csproj.GenerateResource.Cache
+C:\Users\TI\source\repos\consumo\consumo\obj\Debug\consumo.csproj.CoreCompileInputs.cache
+C:\Users\TI\source\repos\consumo\consumo\obj\Debug\consumo.exe
+C:\Users\TI\source\repos\consumo\consumo\obj\Debug\consumo.pdb
+C:\Users\TI\source\repos\consumo\consumo\obj\Debug\consumo.consumo.resources
+C:\Users\TI\source\repos\consumo v1\consumo\bin\Debug\consumo.exe.config
+C:\Users\TI\source\repos\consumo v1\consumo\bin\Debug\consumo.exe
+C:\Users\TI\source\repos\consumo v1\consumo\bin\Debug\consumo.pdb
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.consumo.resources
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.Properties.Resources.resources
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.csproj.GenerateResource.Cache
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.csproj.CoreCompileInputs.cache
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.exe
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.pdb
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.csprojAssemblyReference.cache
+C:\Users\TI\source\repos\consumo v1\consumo\bin\Debug\EntityFramework.dll
+C:\Users\TI\source\repos\consumo v1\consumo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TI\source\repos\consumo v1\consumo\bin\Debug\EntityFramework.xml
+C:\Users\TI\source\repos\consumo v1\consumo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\TI\source\repos\consumo v1\consumo\obj\Debug\consumo.csproj.CopyComplete

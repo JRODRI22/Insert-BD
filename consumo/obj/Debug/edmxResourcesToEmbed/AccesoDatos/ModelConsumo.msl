@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CERDOSModelStoreContainer" CdmEntityContainer="CERDOSEntities">
+    <EntitySetMapping Name="BODEGAS">
+      <EntityTypeMapping TypeName="CERDOSModel.BODEGAS">
+        <MappingFragment StoreEntitySet="BODEGAS">
+          <ScalarProperty Name="Codigo_Bodega" ColumnName="Codigo_Bodega" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Causas_Muertes">
+      <EntityTypeMapping TypeName="CERDOSModel.Causas_Muertes">
+        <MappingFragment StoreEntitySet="Causas_Muertes">
+          <ScalarProperty Name="Codigo_Causa" ColumnName="Codigo_Causa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Corrales">
+      <EntityTypeMapping TypeName="CERDOSModel.Corrales">
+        <MappingFragment StoreEntitySet="Corrales">
+          <ScalarProperty Name="Codigo_Corral" ColumnName="Codigo_Corral" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+          <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entradas">
+      <EntityTypeMapping TypeName="CERDOSModel.Entradas">
+        <MappingFragment StoreEntitySet="Entradas">
+          <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+          <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+          <ScalarProperty Name="Codigo_Corral" ColumnName="Codigo_Corral" />
+          <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+          <ScalarProperty Name="F_Movimiento" ColumnName="F_Movimiento" />
+          <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Numero_Movimiento" ColumnName="Numero_Movimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etapas">
+      <EntityTypeMapping TypeName="CERDOSModel.Etapas">
+        <MappingFragment StoreEntitySet="Etapas">
+          <ScalarProperty Name="Codigo_Etapa" ColumnName="Codigo_Etapa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eventos">
+      <EntityTypeMapping TypeName="CERDOSModel.Eventos">
+        <MappingFragment StoreEntitySet="Eventos">
+          <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Galerones">
+      <EntityTypeMapping TypeName="CERDOSModel.Galerones">
+        <MappingFragment StoreEntitySet="Galerones">
+          <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Granjas">
+      <EntityTypeMapping TypeName="CERDOSModel.Granjas">
+        <MappingFragment StoreEntitySet="Granjas">
+          <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lote1">
+      <EntityTypeMapping TypeName="CERDOSModel.Lote1">
+        <MappingFragment StoreEntitySet="Lote1">
+          <ScalarProperty Name="Codigo_Lote" ColumnName="Codigo_Lote" />
+          <ScalarProperty Name="F_Nacimiento" ColumnName="F_Nacimiento" />
+          <ScalarProperty Name="F_Destete" ColumnName="F_Destete" />
+          <ScalarProperty Name="Peso_Destete" ColumnName="Peso_Destete" />
+          <ScalarProperty Name="Peso_Nacimiento" ColumnName="Peso_Nacimiento" />
+          <ScalarProperty Name="Usuario_Crea" ColumnName="Usuario_Crea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lote2">
+      <EntityTypeMapping TypeName="CERDOSModel.Lote2">
+        <MappingFragment StoreEntitySet="Lote2">
+          <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+          <ScalarProperty Name="Codigo_lote" ColumnName="Codigo_lote" />
+          <ScalarProperty Name="Peso_Traslado" ColumnName="Peso_Traslado" />
+          <ScalarProperty Name="F_Traslado" ColumnName="F_Traslado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mov_Evento">
+      <EntityTypeMapping TypeName="CERDOSModel.Mov_Evento">
+        <MappingFragment StoreEntitySet="Mov_Evento">
+          <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+          <ScalarProperty Name="Numero_Movimiento" ColumnName="Numero_Movimiento" />
+          <ScalarProperty Name="Fecha_Movimiento" ColumnName="Fecha_Movimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salida_Muerte">
+      <EntityTypeMapping TypeName="CERDOSModel.Salida_Muerte">
+        <MappingFragment StoreEntitySet="Salida_Muerte">
+          <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+          <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+          <ScalarProperty Name="Codigo_Causa" ColumnName="Codigo_Causa" />
+          <ScalarProperty Name="F_Salida" ColumnName="F_Salida" />
+          <ScalarProperty Name="Peso_Pie" ColumnName="Peso_Pie" />
+          <ScalarProperty Name="Boleta" ColumnName="Boleta" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salidas">
+      <EntityTypeMapping TypeName="CERDOSModel.Salidas">
+        <MappingFragment StoreEntitySet="Salidas">
+          <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+          <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+          <ScalarProperty Name="Codigo_Corral" ColumnName="Codigo_Corral" />
+          <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+          <ScalarProperty Name="F_Movimiento" ColumnName="F_Movimiento" />
+          <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Numero_Movimiento" ColumnName="Numero_Movimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salidas_Matadero">
+      <EntityTypeMapping TypeName="CERDOSModel.Salidas_Matadero">
+        <MappingFragment StoreEntitySet="Salidas_Matadero">
+          <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+          <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+          <ScalarProperty Name="F_Nacimiento" ColumnName="F_Nacimiento" />
+          <ScalarProperty Name="F_Matanza" ColumnName="F_Matanza" />
+          <ScalarProperty Name="F_Salida" ColumnName="F_Salida" />
+          <ScalarProperty Name="Peso_Pie" ColumnName="Peso_Pie" />
+          <ScalarProperty Name="Peso_Canal" ColumnName="Peso_Canal" />
+          <ScalarProperty Name="Boleta" ColumnName="Boleta" />
+          <ScalarProperty Name="Grasa_16a19" ColumnName="Grasa_16a19" />
+          <ScalarProperty Name="Grasa_Mas19" ColumnName="Grasa_Mas19" />
+          <ScalarProperty Name="Codigo_Venta" ColumnName="Codigo_Venta" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Grasa" ColumnName="Grasa" />
+          <ScalarProperty Name="Magra" ColumnName="Magra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CERDOSModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="CERDOSModel.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="Codigo_Venta" ColumnName="Codigo_Venta" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONSUMO">
+      <EntityTypeMapping TypeName="CERDOSModel.CONSUMO">
+        <MappingFragment StoreEntitySet="CONSUMO">
+          <ScalarProperty Name="sobro_anterior" ColumnName="sobro_anterior" />
+          <ScalarProperty Name="consumo1" ColumnName="consumo" />
+          <ScalarProperty Name="entrada" ColumnName="entrada" />
+          <ScalarProperty Name="sobro" ColumnName="sobro" />
+          <ScalarProperty Name="consuXcerdo" ColumnName="consuXcerdo" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="can_cerdo" ColumnName="can_cerdo" />
+          <ScalarProperty Name="cod_articulo" ColumnName="cod_articulo" />
+          <ScalarProperty Name="cod_bodega" ColumnName="cod_bodega" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

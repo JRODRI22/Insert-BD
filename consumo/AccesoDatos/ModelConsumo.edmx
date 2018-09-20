@@ -1,0 +1,1239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CERDOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BODEGAS">
+          <Key>
+            <PropertyRef Name="Codigo_Bodega" />
+          </Key>
+          <Property Name="Codigo_Bodega" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="40" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Causas_Muertes">
+          <Key>
+            <PropertyRef Name="Codigo_Causa" />
+          </Key>
+          <Property Name="Codigo_Causa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONSUMO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="cod_bodega" Type="varchar" MaxLength="3" />
+          <Property Name="cod_articulo" Type="varchar" MaxLength="10" />
+          <Property Name="can_cerdo" Type="varchar" MaxLength="200" />
+          <Property Name="nota" Type="text" />
+          <Property Name="consuXcerdo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="sobro" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="entrada" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="consumo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="sobro_anterior" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Corrales">
+          <Key>
+            <PropertyRef Name="Codigo_Corral" />
+            <PropertyRef Name="Codigo_Granja" />
+            <PropertyRef Name="Codigo_Galeron" />
+          </Key>
+          <Property Name="Codigo_Corral" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Codigo_Granja" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Codigo_Galeron" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entradas">
+          <Key>
+            <PropertyRef Name="Lote_Actual" />
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Numero_Movimiento" />
+          </Key>
+          <Property Name="Codigo_Granja" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Codigo_Galeron" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Codigo_Corral" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Lote_Actual" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="F_Movimiento" Type="date" Nullable="false" />
+          <Property Name="Codigo_Evento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Numero_Movimiento" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Etapas">
+          <Key>
+            <PropertyRef Name="Codigo_Etapa" />
+          </Key>
+          <Property Name="Codigo_Etapa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Eventos">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Galerones">
+          <Key>
+            <PropertyRef Name="Codigo_Galeron" />
+            <PropertyRef Name="Codigo_Granja" />
+          </Key>
+          <Property Name="Codigo_Galeron" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="50" />
+          <Property Name="Codigo_Granja" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Granjas">
+          <Key>
+            <PropertyRef Name="Codigo_Granja" />
+          </Key>
+          <Property Name="Codigo_Granja" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Lote1">
+          <Key>
+            <PropertyRef Name="Codigo_Lote" />
+          </Key>
+          <Property Name="Codigo_Lote" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="F_Nacimiento" Type="date" Nullable="false" />
+          <Property Name="F_Destete" Type="date" Nullable="false" />
+          <Property Name="Peso_Destete" Type="decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Peso_Nacimiento" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="Usuario_Crea" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Lote2">
+          <Key>
+            <PropertyRef Name="Lote_Actual" />
+          </Key>
+          <Property Name="Lote_Actual" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Codigo_lote" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Peso_Traslado" Type="varchar" MaxLength="10" />
+          <Property Name="F_Traslado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mov_Evento">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Numero_Movimiento" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Numero_Movimiento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fecha_Movimiento" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salida_Muerte">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Lote_Actual" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Codigo_Causa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="F_Salida" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Peso_Pie" Type="decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Boleta" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salidas">
+          <Key>
+            <PropertyRef Name="Lote_Actual" />
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Numero_Movimiento" />
+          </Key>
+          <Property Name="Codigo_Granja" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Codigo_Galeron" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Codigo_Corral" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Lote_Actual" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="F_Movimiento" Type="date" Nullable="false" />
+          <Property Name="Codigo_Evento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Numero_Movimiento" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salidas_Matadero">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Lote_Actual" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Lote_Actual" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="F_Nacimiento" Type="date" Nullable="false" />
+          <Property Name="F_Matanza" Type="date" />
+          <Property Name="F_Salida" Type="date" />
+          <Property Name="Peso_Pie" Type="decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Peso_Canal" Type="decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Boleta" Type="varchar" MaxLength="10" />
+          <Property Name="Grasa_16a19" Type="varchar" MaxLength="10" />
+          <Property Name="Grasa_Mas19" Type="varchar" MaxLength="10" />
+          <Property Name="Codigo_Venta" Type="varchar" MaxLength="10" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Edad" Type="varchar" MaxLength="10" />
+          <Property Name="Grasa" Type="varchar" MaxLength="10" />
+          <Property Name="Magra" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Codigo_Venta" />
+          </Key>
+          <Property Name="Codigo_Venta" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Corrales_Galerones">
+          <End Role="Galerones" Type="Self.Galerones" Multiplicity="1" />
+          <End Role="Corrales" Type="Self.Corrales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerones">
+              <PropertyRef Name="Codigo_Galeron" />
+              <PropertyRef Name="Codigo_Granja" />
+            </Principal>
+            <Dependent Role="Corrales">
+              <PropertyRef Name="Codigo_Galeron" />
+              <PropertyRef Name="Codigo_Granja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Corrales">
+          <End Role="Corrales" Type="Self.Corrales" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corrales">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Eventos1">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Lote2">
+          <End Role="Lote2" Type="Self.Lote2" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote2">
+              <PropertyRef Name="Lote_Actual" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Lote_Actual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Mov_Evento">
+          <End Role="Mov_Evento" Type="Self.Mov_Evento" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mov_Evento">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Numero_Movimiento" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Numero_Movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galerones_Granjas">
+          <End Role="Granjas" Type="Self.Granjas" Multiplicity="1" />
+          <End Role="Galerones" Type="Self.Galerones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Granjas">
+              <PropertyRef Name="Codigo_Granja" />
+            </Principal>
+            <Dependent Role="Galerones">
+              <PropertyRef Name="Codigo_Granja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lote2_Lote1">
+          <End Role="Lote1" Type="Self.Lote1" Multiplicity="1" />
+          <End Role="Lote2" Type="Self.Lote2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote1">
+              <PropertyRef Name="Codigo_Lote" />
+            </Principal>
+            <Dependent Role="Lote2">
+              <PropertyRef Name="Codigo_lote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mov_Evento_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Mov_Evento" Type="Self.Mov_Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Mov_Evento">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salida_Muerte_Causas_Muertes">
+          <End Role="Causas_Muertes" Type="Self.Causas_Muertes" Multiplicity="1" />
+          <End Role="Salida_Muerte" Type="Self.Salida_Muerte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Causas_Muertes">
+              <PropertyRef Name="Codigo_Causa" />
+            </Principal>
+            <Dependent Role="Salida_Muerte">
+              <PropertyRef Name="Codigo_Causa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salida_Muerte_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Salida_Muerte" Type="Self.Salida_Muerte" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salida_Muerte">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Corrales">
+          <End Role="Corrales" Type="Self.Corrales" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corrales">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Lote2">
+          <End Role="Lote2" Type="Self.Lote2" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote2">
+              <PropertyRef Name="Lote_Actual" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Lote_Actual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Matadero_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Salidas_Matadero" Type="Self.Salidas_Matadero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salidas_Matadero">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Matadero_Ventas">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Salidas_Matadero" Type="Self.Salidas_Matadero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo_Venta" />
+            </Principal>
+            <Dependent Role="Salidas_Matadero">
+              <PropertyRef Name="Codigo_Venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Salida_Muerte">
+          <End Role="Salida_Muerte" Type="Self.Salida_Muerte" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salida_Muerte">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Salidas_Matadero">
+          <End Role="Salidas_Matadero" Type="Self.Salidas_Matadero" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salidas_Matadero">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Lote_Actual" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Lote_Actual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CERDOSModelStoreContainer">
+          <EntitySet Name="BODEGAS" EntityType="Self.BODEGAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Causas_Muertes" EntityType="Self.Causas_Muertes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONSUMO" EntityType="Self.CONSUMO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Corrales" EntityType="Self.Corrales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entradas" EntityType="Self.Entradas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etapas" EntityType="Self.Etapas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eventos" EntityType="Self.Eventos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Galerones" EntityType="Self.Galerones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Granjas" EntityType="Self.Granjas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lote1" EntityType="Self.Lote1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lote2" EntityType="Self.Lote2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mov_Evento" EntityType="Self.Mov_Evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salida_Muerte" EntityType="Self.Salida_Muerte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salidas" EntityType="Self.Salidas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salidas_Matadero" EntityType="Self.Salidas_Matadero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Corrales_Galerones" Association="Self.FK_Corrales_Galerones">
+            <End Role="Galerones" EntitySet="Galerones" />
+            <End Role="Corrales" EntitySet="Corrales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Corrales" Association="Self.FK_Entradas_Corrales">
+            <End Role="Corrales" EntitySet="Corrales" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Eventos1" Association="Self.FK_Entradas_Eventos1">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Lote2" Association="Self.FK_Entradas_Lote2">
+            <End Role="Lote2" EntitySet="Lote2" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Mov_Evento" Association="Self.FK_Entradas_Mov_Evento">
+            <End Role="Mov_Evento" EntitySet="Mov_Evento" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galerones_Granjas" Association="Self.FK_Galerones_Granjas">
+            <End Role="Granjas" EntitySet="Granjas" />
+            <End Role="Galerones" EntitySet="Galerones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lote2_Lote1" Association="Self.FK_Lote2_Lote1">
+            <End Role="Lote1" EntitySet="Lote1" />
+            <End Role="Lote2" EntitySet="Lote2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mov_Evento_Eventos" Association="Self.FK_Mov_Evento_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Mov_Evento" EntitySet="Mov_Evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salida_Muerte_Causas_Muertes" Association="Self.FK_Salida_Muerte_Causas_Muertes">
+            <End Role="Causas_Muertes" EntitySet="Causas_Muertes" />
+            <End Role="Salida_Muerte" EntitySet="Salida_Muerte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salida_Muerte_Eventos" Association="Self.FK_Salida_Muerte_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Salida_Muerte" EntitySet="Salida_Muerte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Corrales" Association="Self.FK_Salidas_Corrales">
+            <End Role="Corrales" EntitySet="Corrales" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Eventos" Association="Self.FK_Salidas_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Lote2" Association="Self.FK_Salidas_Lote2">
+            <End Role="Lote2" EntitySet="Lote2" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Matadero_Eventos" Association="Self.FK_Salidas_Matadero_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Salidas_Matadero" EntitySet="Salidas_Matadero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Matadero_Ventas" Association="Self.FK_Salidas_Matadero_Ventas">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Salidas_Matadero" EntitySet="Salidas_Matadero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Salida_Muerte" Association="Self.FK_Salidas_Salida_Muerte">
+            <End Role="Salida_Muerte" EntitySet="Salida_Muerte" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Salidas_Matadero" Association="Self.FK_Salidas_Salidas_Matadero">
+            <End Role="Salidas_Matadero" EntitySet="Salidas_Matadero" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CERDOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BODEGAS">
+          <Key>
+            <PropertyRef Name="Codigo_Bodega" />
+          </Key>
+          <Property Name="Codigo_Bodega" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Causas_Muertes">
+          <Key>
+            <PropertyRef Name="Codigo_Causa" />
+          </Key>
+          <Property Name="Codigo_Causa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Salida_Muerte" Relationship="Self.FK_Salida_Muerte_Causas_Muertes" FromRole="Causas_Muertes" ToRole="Salida_Muerte" />
+        </EntityType>
+        <EntityType Name="Corrales">
+          <Key>
+            <PropertyRef Name="Codigo_Corral" />
+            <PropertyRef Name="Codigo_Granja" />
+            <PropertyRef Name="Codigo_Galeron" />
+          </Key>
+          <Property Name="Codigo_Corral" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Granja" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Galeron" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Galerones" Relationship="Self.FK_Corrales_Galerones" FromRole="Corrales" ToRole="Galerones" />
+          <NavigationProperty Name="Entradas" Relationship="Self.FK_Entradas_Corrales" FromRole="Corrales" ToRole="Entradas" />
+          <NavigationProperty Name="Salidas" Relationship="Self.FK_Salidas_Corrales" FromRole="Corrales" ToRole="Salidas" />
+        </EntityType>
+        <EntityType Name="Entradas">
+          <Key>
+            <PropertyRef Name="Lote_Actual" />
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Numero_Movimiento" />
+          </Key>
+          <Property Name="Codigo_Granja" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Galeron" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Corral" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lote_Actual" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="F_Movimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Codigo_Evento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Numero_Movimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Corrales" Relationship="Self.FK_Entradas_Corrales" FromRole="Entradas" ToRole="Corrales" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK_Entradas_Eventos1" FromRole="Entradas" ToRole="Eventos" />
+          <NavigationProperty Name="Lote2" Relationship="Self.FK_Entradas_Lote2" FromRole="Entradas" ToRole="Lote2" />
+          <NavigationProperty Name="Mov_Evento" Relationship="Self.FK_Entradas_Mov_Evento" FromRole="Entradas" ToRole="Mov_Evento" />
+        </EntityType>
+        <EntityType Name="Etapas">
+          <Key>
+            <PropertyRef Name="Codigo_Etapa" />
+          </Key>
+          <Property Name="Codigo_Etapa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Eventos">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Entradas" Relationship="Self.FK_Entradas_Eventos1" FromRole="Eventos" ToRole="Entradas" />
+          <NavigationProperty Name="Mov_Evento" Relationship="Self.FK_Mov_Evento_Eventos" FromRole="Eventos" ToRole="Mov_Evento" />
+          <NavigationProperty Name="Salida_Muerte" Relationship="Self.FK_Salida_Muerte_Eventos" FromRole="Eventos" ToRole="Salida_Muerte" />
+          <NavigationProperty Name="Salidas" Relationship="Self.FK_Salidas_Eventos" FromRole="Eventos" ToRole="Salidas" />
+          <NavigationProperty Name="Salidas_Matadero" Relationship="Self.FK_Salidas_Matadero_Eventos" FromRole="Eventos" ToRole="Salidas_Matadero" />
+        </EntityType>
+        <EntityType Name="Galerones">
+          <Key>
+            <PropertyRef Name="Codigo_Galeron" />
+            <PropertyRef Name="Codigo_Granja" />
+          </Key>
+          <Property Name="Codigo_Galeron" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Granja" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Corrales" Relationship="Self.FK_Corrales_Galerones" FromRole="Galerones" ToRole="Corrales" />
+          <NavigationProperty Name="Granjas" Relationship="Self.FK_Galerones_Granjas" FromRole="Galerones" ToRole="Granjas" />
+        </EntityType>
+        <EntityType Name="Granjas">
+          <Key>
+            <PropertyRef Name="Codigo_Granja" />
+          </Key>
+          <Property Name="Codigo_Granja" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Galerones" Relationship="Self.FK_Galerones_Granjas" FromRole="Granjas" ToRole="Galerones" />
+        </EntityType>
+        <EntityType Name="Lote1">
+          <Key>
+            <PropertyRef Name="Codigo_Lote" />
+          </Key>
+          <Property Name="Codigo_Lote" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="F_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="F_Destete" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Peso_Destete" Type="Decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Peso_Nacimiento" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="Usuario_Crea" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Lote2" Relationship="Self.FK_Lote2_Lote1" FromRole="Lote1" ToRole="Lote2" />
+        </EntityType>
+        <EntityType Name="Lote2">
+          <Key>
+            <PropertyRef Name="Lote_Actual" />
+          </Key>
+          <Property Name="Lote_Actual" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_lote" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Peso_Traslado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="F_Traslado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Entradas" Relationship="Self.FK_Entradas_Lote2" FromRole="Lote2" ToRole="Entradas" />
+          <NavigationProperty Name="Lote1" Relationship="Self.FK_Lote2_Lote1" FromRole="Lote2" ToRole="Lote1" />
+          <NavigationProperty Name="Salidas" Relationship="Self.FK_Salidas_Lote2" FromRole="Lote2" ToRole="Salidas" />
+        </EntityType>
+        <EntityType Name="Mov_Evento">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Numero_Movimiento" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numero_Movimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Movimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Entradas" Relationship="Self.FK_Entradas_Mov_Evento" FromRole="Mov_Evento" ToRole="Entradas" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK_Mov_Evento_Eventos" FromRole="Mov_Evento" ToRole="Eventos" />
+        </EntityType>
+        <EntityType Name="Salida_Muerte">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lote_Actual" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Causa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="F_Salida" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Peso_Pie" Type="Decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Boleta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <NavigationProperty Name="Causas_Muertes" Relationship="Self.FK_Salida_Muerte_Causas_Muertes" FromRole="Salida_Muerte" ToRole="Causas_Muertes" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK_Salida_Muerte_Eventos" FromRole="Salida_Muerte" ToRole="Eventos" />
+          <NavigationProperty Name="Salidas" Relationship="Self.FK_Salidas_Salida_Muerte" FromRole="Salida_Muerte" ToRole="Salidas" />
+        </EntityType>
+        <EntityType Name="Salidas">
+          <Key>
+            <PropertyRef Name="Lote_Actual" />
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Numero_Movimiento" />
+          </Key>
+          <Property Name="Codigo_Granja" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Galeron" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Corral" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lote_Actual" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="F_Movimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Codigo_Evento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Numero_Movimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Corrales" Relationship="Self.FK_Salidas_Corrales" FromRole="Salidas" ToRole="Corrales" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK_Salidas_Eventos" FromRole="Salidas" ToRole="Eventos" />
+          <NavigationProperty Name="Lote2" Relationship="Self.FK_Salidas_Lote2" FromRole="Salidas" ToRole="Lote2" />
+          <NavigationProperty Name="Salida_Muerte" Relationship="Self.FK_Salidas_Salida_Muerte" FromRole="Salidas" ToRole="Salida_Muerte" />
+          <NavigationProperty Name="Salidas_Matadero" Relationship="Self.FK_Salidas_Salidas_Matadero" FromRole="Salidas" ToRole="Salidas_Matadero" />
+        </EntityType>
+        <EntityType Name="Salidas_Matadero">
+          <Key>
+            <PropertyRef Name="Codigo_Evento" />
+            <PropertyRef Name="Lote_Actual" />
+          </Key>
+          <Property Name="Codigo_Evento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lote_Actual" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="F_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="F_Matanza" Type="DateTime" Precision="0" />
+          <Property Name="F_Salida" Type="DateTime" Precision="0" />
+          <Property Name="Peso_Pie" Type="Decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Peso_Canal" Type="Decimal" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="Boleta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Grasa_16a19" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Grasa_Mas19" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Venta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="Edad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Grasa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Magra" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK_Salidas_Matadero_Eventos" FromRole="Salidas_Matadero" ToRole="Eventos" />
+          <NavigationProperty Name="Salidas" Relationship="Self.FK_Salidas_Salidas_Matadero" FromRole="Salidas_Matadero" ToRole="Salidas" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK_Salidas_Matadero_Ventas" FromRole="Salidas_Matadero" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Codigo_Venta" />
+          </Key>
+          <Property Name="Codigo_Venta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Salidas_Matadero" Relationship="Self.FK_Salidas_Matadero_Ventas" FromRole="Ventas" ToRole="Salidas_Matadero" />
+        </EntityType>
+        <Association Name="FK_Salida_Muerte_Causas_Muertes">
+          <End Role="Causas_Muertes" Type="Self.Causas_Muertes" Multiplicity="1" />
+          <End Role="Salida_Muerte" Type="Self.Salida_Muerte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Causas_Muertes">
+              <PropertyRef Name="Codigo_Causa" />
+            </Principal>
+            <Dependent Role="Salida_Muerte">
+              <PropertyRef Name="Codigo_Causa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Corrales_Galerones">
+          <End Role="Galerones" Type="Self.Galerones" Multiplicity="1" />
+          <End Role="Corrales" Type="Self.Corrales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galerones">
+              <PropertyRef Name="Codigo_Galeron" />
+              <PropertyRef Name="Codigo_Granja" />
+            </Principal>
+            <Dependent Role="Corrales">
+              <PropertyRef Name="Codigo_Galeron" />
+              <PropertyRef Name="Codigo_Granja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Corrales">
+          <End Role="Corrales" Type="Self.Corrales" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corrales">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Corrales">
+          <End Role="Corrales" Type="Self.Corrales" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corrales">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Corral" />
+              <PropertyRef Name="Codigo_Granja" />
+              <PropertyRef Name="Codigo_Galeron" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Eventos1">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Lote2">
+          <End Role="Lote2" Type="Self.Lote2" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote2">
+              <PropertyRef Name="Lote_Actual" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Lote_Actual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entradas_Mov_Evento">
+          <End Role="Mov_Evento" Type="Self.Mov_Evento" Multiplicity="1" />
+          <End Role="Entradas" Type="Self.Entradas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mov_Evento">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Numero_Movimiento" />
+            </Principal>
+            <Dependent Role="Entradas">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Numero_Movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mov_Evento_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Mov_Evento" Type="Self.Mov_Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Mov_Evento">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salida_Muerte_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Salida_Muerte" Type="Self.Salida_Muerte" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salida_Muerte">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Matadero_Eventos">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="Salidas_Matadero" Type="Self.Salidas_Matadero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salidas_Matadero">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galerones_Granjas">
+          <End Role="Granjas" Type="Self.Granjas" Multiplicity="1" />
+          <End Role="Galerones" Type="Self.Galerones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Granjas">
+              <PropertyRef Name="Codigo_Granja" />
+            </Principal>
+            <Dependent Role="Galerones">
+              <PropertyRef Name="Codigo_Granja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lote2_Lote1">
+          <End Role="Lote1" Type="Self.Lote1" Multiplicity="1" />
+          <End Role="Lote2" Type="Self.Lote2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote1">
+              <PropertyRef Name="Codigo_Lote" />
+            </Principal>
+            <Dependent Role="Lote2">
+              <PropertyRef Name="Codigo_lote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Lote2">
+          <End Role="Lote2" Type="Self.Lote2" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lote2">
+              <PropertyRef Name="Lote_Actual" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Lote_Actual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Salida_Muerte">
+          <End Role="Salida_Muerte" Type="Self.Salida_Muerte" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salida_Muerte">
+              <PropertyRef Name="Codigo_Evento" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Evento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Salidas_Matadero">
+          <End Role="Salidas_Matadero" Type="Self.Salidas_Matadero" Multiplicity="1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salidas_Matadero">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Lote_Actual" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="Codigo_Evento" />
+              <PropertyRef Name="Lote_Actual" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Matadero_Ventas">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Salidas_Matadero" Type="Self.Salidas_Matadero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo_Venta" />
+            </Principal>
+            <Dependent Role="Salidas_Matadero">
+              <PropertyRef Name="Codigo_Venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CERDOSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BODEGAS" EntityType="Self.BODEGAS" />
+          <EntitySet Name="Causas_Muertes" EntityType="Self.Causas_Muertes" />
+          <EntitySet Name="Corrales" EntityType="Self.Corrales" />
+          <EntitySet Name="Entradas" EntityType="Self.Entradas" />
+          <EntitySet Name="Etapas" EntityType="Self.Etapas" />
+          <EntitySet Name="Eventos" EntityType="Self.Eventos" />
+          <EntitySet Name="Galerones" EntityType="Self.Galerones" />
+          <EntitySet Name="Granjas" EntityType="Self.Granjas" />
+          <EntitySet Name="Lote1" EntityType="Self.Lote1" />
+          <EntitySet Name="Lote2" EntityType="Self.Lote2" />
+          <EntitySet Name="Mov_Evento" EntityType="Self.Mov_Evento" />
+          <EntitySet Name="Salida_Muerte" EntityType="Self.Salida_Muerte" />
+          <EntitySet Name="Salidas" EntityType="Self.Salidas" />
+          <EntitySet Name="Salidas_Matadero" EntityType="Self.Salidas_Matadero" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" />
+          <AssociationSet Name="FK_Salida_Muerte_Causas_Muertes" Association="Self.FK_Salida_Muerte_Causas_Muertes">
+            <End Role="Causas_Muertes" EntitySet="Causas_Muertes" />
+            <End Role="Salida_Muerte" EntitySet="Salida_Muerte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Corrales_Galerones" Association="Self.FK_Corrales_Galerones">
+            <End Role="Galerones" EntitySet="Galerones" />
+            <End Role="Corrales" EntitySet="Corrales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Corrales" Association="Self.FK_Entradas_Corrales">
+            <End Role="Corrales" EntitySet="Corrales" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Corrales" Association="Self.FK_Salidas_Corrales">
+            <End Role="Corrales" EntitySet="Corrales" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Eventos1" Association="Self.FK_Entradas_Eventos1">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Lote2" Association="Self.FK_Entradas_Lote2">
+            <End Role="Lote2" EntitySet="Lote2" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entradas_Mov_Evento" Association="Self.FK_Entradas_Mov_Evento">
+            <End Role="Mov_Evento" EntitySet="Mov_Evento" />
+            <End Role="Entradas" EntitySet="Entradas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mov_Evento_Eventos" Association="Self.FK_Mov_Evento_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Mov_Evento" EntitySet="Mov_Evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salida_Muerte_Eventos" Association="Self.FK_Salida_Muerte_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Salida_Muerte" EntitySet="Salida_Muerte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Eventos" Association="Self.FK_Salidas_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Matadero_Eventos" Association="Self.FK_Salidas_Matadero_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Salidas_Matadero" EntitySet="Salidas_Matadero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galerones_Granjas" Association="Self.FK_Galerones_Granjas">
+            <End Role="Granjas" EntitySet="Granjas" />
+            <End Role="Galerones" EntitySet="Galerones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lote2_Lote1" Association="Self.FK_Lote2_Lote1">
+            <End Role="Lote1" EntitySet="Lote1" />
+            <End Role="Lote2" EntitySet="Lote2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Lote2" Association="Self.FK_Salidas_Lote2">
+            <End Role="Lote2" EntitySet="Lote2" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Salida_Muerte" Association="Self.FK_Salidas_Salida_Muerte">
+            <End Role="Salida_Muerte" EntitySet="Salida_Muerte" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Salidas_Matadero" Association="Self.FK_Salidas_Salidas_Matadero">
+            <End Role="Salidas_Matadero" EntitySet="Salidas_Matadero" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Matadero_Ventas" Association="Self.FK_Salidas_Matadero_Ventas">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Salidas_Matadero" EntitySet="Salidas_Matadero" />
+          </AssociationSet>
+          <EntitySet Name="CONSUMO" EntityType="CERDOSModel.CONSUMO" />
+        </EntityContainer>
+        <EntityType Name="CONSUMO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="cod_bodega" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="cod_articulo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="can_cerdo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="consuXcerdo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="sobro" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="entrada" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="consumo1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="sobro_anterior" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CERDOSModelStoreContainer" CdmEntityContainer="CERDOSEntities">
+          <EntitySetMapping Name="BODEGAS">
+            <EntityTypeMapping TypeName="CERDOSModel.BODEGAS">
+              <MappingFragment StoreEntitySet="BODEGAS">
+                <ScalarProperty Name="Codigo_Bodega" ColumnName="Codigo_Bodega" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Causas_Muertes">
+            <EntityTypeMapping TypeName="CERDOSModel.Causas_Muertes">
+              <MappingFragment StoreEntitySet="Causas_Muertes">
+                <ScalarProperty Name="Codigo_Causa" ColumnName="Codigo_Causa" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Corrales">
+            <EntityTypeMapping TypeName="CERDOSModel.Corrales">
+              <MappingFragment StoreEntitySet="Corrales">
+                <ScalarProperty Name="Codigo_Corral" ColumnName="Codigo_Corral" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+                <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entradas">
+            <EntityTypeMapping TypeName="CERDOSModel.Entradas">
+              <MappingFragment StoreEntitySet="Entradas">
+                <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+                <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+                <ScalarProperty Name="Codigo_Corral" ColumnName="Codigo_Corral" />
+                <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+                <ScalarProperty Name="F_Movimiento" ColumnName="F_Movimiento" />
+                <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Numero_Movimiento" ColumnName="Numero_Movimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etapas">
+            <EntityTypeMapping TypeName="CERDOSModel.Etapas">
+              <MappingFragment StoreEntitySet="Etapas">
+                <ScalarProperty Name="Codigo_Etapa" ColumnName="Codigo_Etapa" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eventos">
+            <EntityTypeMapping TypeName="CERDOSModel.Eventos">
+              <MappingFragment StoreEntitySet="Eventos">
+                <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galerones">
+            <EntityTypeMapping TypeName="CERDOSModel.Galerones">
+              <MappingFragment StoreEntitySet="Galerones">
+                <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Granjas">
+            <EntityTypeMapping TypeName="CERDOSModel.Granjas">
+              <MappingFragment StoreEntitySet="Granjas">
+                <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lote1">
+            <EntityTypeMapping TypeName="CERDOSModel.Lote1">
+              <MappingFragment StoreEntitySet="Lote1">
+                <ScalarProperty Name="Codigo_Lote" ColumnName="Codigo_Lote" />
+                <ScalarProperty Name="F_Nacimiento" ColumnName="F_Nacimiento" />
+                <ScalarProperty Name="F_Destete" ColumnName="F_Destete" />
+                <ScalarProperty Name="Peso_Destete" ColumnName="Peso_Destete" />
+                <ScalarProperty Name="Peso_Nacimiento" ColumnName="Peso_Nacimiento" />
+                <ScalarProperty Name="Usuario_Crea" ColumnName="Usuario_Crea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lote2">
+            <EntityTypeMapping TypeName="CERDOSModel.Lote2">
+              <MappingFragment StoreEntitySet="Lote2">
+                <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+                <ScalarProperty Name="Codigo_lote" ColumnName="Codigo_lote" />
+                <ScalarProperty Name="Peso_Traslado" ColumnName="Peso_Traslado" />
+                <ScalarProperty Name="F_Traslado" ColumnName="F_Traslado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mov_Evento">
+            <EntityTypeMapping TypeName="CERDOSModel.Mov_Evento">
+              <MappingFragment StoreEntitySet="Mov_Evento">
+                <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+                <ScalarProperty Name="Numero_Movimiento" ColumnName="Numero_Movimiento" />
+                <ScalarProperty Name="Fecha_Movimiento" ColumnName="Fecha_Movimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salida_Muerte">
+            <EntityTypeMapping TypeName="CERDOSModel.Salida_Muerte">
+              <MappingFragment StoreEntitySet="Salida_Muerte">
+                <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+                <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+                <ScalarProperty Name="Codigo_Causa" ColumnName="Codigo_Causa" />
+                <ScalarProperty Name="F_Salida" ColumnName="F_Salida" />
+                <ScalarProperty Name="Peso_Pie" ColumnName="Peso_Pie" />
+                <ScalarProperty Name="Boleta" ColumnName="Boleta" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salidas">
+            <EntityTypeMapping TypeName="CERDOSModel.Salidas">
+              <MappingFragment StoreEntitySet="Salidas">
+                <ScalarProperty Name="Codigo_Granja" ColumnName="Codigo_Granja" />
+                <ScalarProperty Name="Codigo_Galeron" ColumnName="Codigo_Galeron" />
+                <ScalarProperty Name="Codigo_Corral" ColumnName="Codigo_Corral" />
+                <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+                <ScalarProperty Name="F_Movimiento" ColumnName="F_Movimiento" />
+                <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Numero_Movimiento" ColumnName="Numero_Movimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salidas_Matadero">
+            <EntityTypeMapping TypeName="CERDOSModel.Salidas_Matadero">
+              <MappingFragment StoreEntitySet="Salidas_Matadero">
+                <ScalarProperty Name="Codigo_Evento" ColumnName="Codigo_Evento" />
+                <ScalarProperty Name="Lote_Actual" ColumnName="Lote_Actual" />
+                <ScalarProperty Name="F_Nacimiento" ColumnName="F_Nacimiento" />
+                <ScalarProperty Name="F_Matanza" ColumnName="F_Matanza" />
+                <ScalarProperty Name="F_Salida" ColumnName="F_Salida" />
+                <ScalarProperty Name="Peso_Pie" ColumnName="Peso_Pie" />
+                <ScalarProperty Name="Peso_Canal" ColumnName="Peso_Canal" />
+                <ScalarProperty Name="Boleta" ColumnName="Boleta" />
+                <ScalarProperty Name="Grasa_16a19" ColumnName="Grasa_16a19" />
+                <ScalarProperty Name="Grasa_Mas19" ColumnName="Grasa_Mas19" />
+                <ScalarProperty Name="Codigo_Venta" ColumnName="Codigo_Venta" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Grasa" ColumnName="Grasa" />
+                <ScalarProperty Name="Magra" ColumnName="Magra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CERDOSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="CERDOSModel.Ventas">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="Codigo_Venta" ColumnName="Codigo_Venta" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONSUMO">
+            <EntityTypeMapping TypeName="CERDOSModel.CONSUMO">
+              <MappingFragment StoreEntitySet="CONSUMO">
+                <ScalarProperty Name="sobro_anterior" ColumnName="sobro_anterior" />
+                <ScalarProperty Name="consumo1" ColumnName="consumo" />
+                <ScalarProperty Name="entrada" ColumnName="entrada" />
+                <ScalarProperty Name="sobro" ColumnName="sobro" />
+                <ScalarProperty Name="consuXcerdo" ColumnName="consuXcerdo" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="can_cerdo" ColumnName="can_cerdo" />
+                <ScalarProperty Name="cod_articulo" ColumnName="cod_articulo" />
+                <ScalarProperty Name="cod_bodega" ColumnName="cod_bodega" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

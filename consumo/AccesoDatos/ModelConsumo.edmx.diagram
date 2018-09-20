@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d2a0fe700e54d499e3e8486946027d8" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="CERDOSModel.BODEGAS" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Causas_Muertes" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Corrales" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Entradas" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Etapas" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Eventos" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Galerones" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Granjas" Width="1.5" PointX="1.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Lote1" Width="1.5" PointX="3.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Lote2" Width="1.5" PointX="6" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Mov_Evento" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Salida_Muerte" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Salidas" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Salidas_Matadero" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CERDOSModel.Ventas" Width="1.5" PointX="3.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="CERDOSModel.FK_Salida_Muerte_Causas_Muertes" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Corrales_Galerones" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Entradas_Corrales" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salidas_Corrales" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Entradas_Eventos1" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Entradas_Lote2" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Entradas_Mov_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Mov_Evento_Eventos" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salida_Muerte_Eventos" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salidas_Eventos" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salidas_Matadero_Eventos" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Galerones_Granjas" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Lote2_Lote1" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salidas_Lote2" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salidas_Salida_Muerte" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salidas_Salidas_Matadero" ManuallyRouted="false" />
+        <AssociationConnector Association="CERDOSModel.FK_Salidas_Matadero_Ventas" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CERDOSModel.CONSUMO" Width="1.5" PointX="10.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
